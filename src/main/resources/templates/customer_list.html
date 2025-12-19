@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Customer List</title>
+    <link rel="stylesheet" th:href="@{/bootstrap-5.3.8-dist/css/bootstrap.min.css}">
+</head>
+<body>
+
+<div class="container mt-5">
+
+    <h2 class="text-center mb-4">Customer List</h2>
+
+    <!-- Responsive Table Wrapper -->
+    <div class="table-responsive">
+        <table class="table table-bordered table-striped table-hover">
+            <thead class="table-dark">
+            <tr>
+                <th scope="col">ID</th>
+                <th scope="col">Name</th>
+                <th scope="col">Mobile</th>
+                <th scope="col">Address</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr th:each="c : ${customers}">
+                <td th:text="${c.customerId}"></td>
+                <td th:text="${c.name}"></td>
+                <td th:text="${c.mobile}"></td>
+                <td th:text="${c.address}"></td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <div class="text-center mt-3">
+        <a href="/customers/add" class="btn btn-primary">Add New Customer</a>
+    </div>
+
+</div>
+
+<script th:src="@{/bootstrap-5.3.8-dist/js/bootstrap.bundle.min.js}"></script>
+</body>
+</html>

@@ -2,12 +2,14 @@
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
     <title>Add Customer</title>
+    <link rel="stylesheet" th:href="@{/bootstrap-5.3.8-dist/css/bootstrap.min.css}">
+
 </head>
 <body>
 
-<h2>Add Customer</h2>
-
-<form th:action="@{/customers/save}" th:object="${customer}" method="post">
+<div class="container mt-5">
+<h3 class="text-center mb-4">Add Customer</h3>
+<form th:action="@{/customers/save}" th:object="${customer}" method="post" style="margin-left:10px;">
 
     <label>Name:</label><br>
     <input type="text" th:field="*{name}" required><br><br>
@@ -24,6 +26,7 @@
 
 <br>
 <a href="/customers/list">View Customers</a>
+<script th:src="@{/bootstrap-5.3.8-dist/js/bootstrap.bundle.min.js}"></script>
 
 </body>
 </html>
