@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Open Account</title>
+    <link rel="stylesheet" th:href="@{/bootstrap-5.3.8-dist/css/bootstrap.min.css}">
+</head>
+<body>
+
+<div class="container mt-5">
+    <h3 class="text-center mb-4">Open Account</h3>
+
+    <form th:action="@{/accounts/save}" th:object="${account}" method="post">
+
+        <div class="mb-3">
+            <label>Customer ID</label>
+            <input type="number" class="form-control" th:field="*{customerId}" required>
+        </div>
+
+        <div class="mb-3">
+            <label>Account Type</label>
+            <select class="form-control" th:field="*{accountType}">
+                <option value="SAVING">Saving</option>
+                <option value="CURRENT">Current</option>
+            </select>
+        </div>
+
+        <div class="mb-3">
+            <label>Opening Balance</label>
+            <input type="number" class="form-control" th:field="*{balance}" required>
+        </div>
+
+        <button class="btn btn-success w-100">Open Account</button>
+    </form>
+</div>
+
+</body>
+</html>

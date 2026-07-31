@@ -1,23 +1,26 @@
 package com.example.journal.controlar;
 
-import com.example.journal.Service.CustomerService;
-import org.springframework.ui.Model;
 import com.example.journal.Entity.Customer;
+import com.example.journal.Repository.CustomerRepo;
+import com.example.journal.Repository.OrderItemRepository;
+import com.example.journal.Service.CustomerService;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.*;
 
 @Controller
 @RequestMapping("/customers")
 public class CustomerUIController {
 
-
     private final CustomerService service;
+    private final OrderItemRepository orderItemRepository;
+    private final CustomerRepo customerRepo;
 
-    public CustomerUIController(CustomerService service) {
+    public CustomerUIController(CustomerService service,
+                                OrderItemRepository orderItemRepository ,CustomerRepo customerRepo) {
         this.service = service;
+        this.orderItemRepository = orderItemRepository;
+        this.customerRepo = customerRepo;
     }
 
     // Open Add Customer Page
@@ -40,4 +43,24 @@ public class CustomerUIController {
         model.addAttribute("customers", service.getAllCustomers());
         return "customer_list";
     }
+
+    @GetMapping("/login")
+    public String login() {
+        return "login";
+    }
+
+    @GetMapping("/home")
+    public String home(Model model) {
+
+        Long totalOrders = orderItemRepository.count();
+        Long totalCustomer = customerRepo.count();
+
+        System.out.println("Total Orders = " + totalOrders);
+
+        model.addAttribute("totalOrders", totalOrders);
+        model.addAttribute("totalcustomer",totalCustomer);
+
+        return "home";
+    }
+
 }

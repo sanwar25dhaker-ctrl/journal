@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+
+    <meta charset="UTF-8">
+    <title>Flour Mill Dashboard</title>
+
+    <link rel="stylesheet" th:href="@{/bootstrap-5.3.8-dist/css/home.css}">
+
+</head>
+
+<script>
+
+    function openMenu(){
+
+        document
+        .getElementById("sidebar")
+        .classList.add("active");
+
+
+        document
+        .getElementById("overlay")
+        .classList.add("active");
+
+     document.getElementById("main")
+    .classList.add("shift");
+
+    }
+
+
+    function closeMenu(){
+
+        document
+        .getElementById("sidebar")
+        .classList.remove("active");
+
+
+        document
+        .getElementById("overlay")
+        .classList.remove("active");
+
+         document
+        .getElementById("main")
+        .classList.remove("shift");
+
+    }
+
+</script>
+
+<body>
+<!--<button class="menu-btn" onclick="openMenu()">-->
+<!--    ☰-->
+<!--</button>-->
+<div class="topmenu">
+  <div class="heading">
+    <h2>🌾 Flour Mill Dashboard</h2>
+  </div>
+    <div class="menu-right">
+        <a href="#">Profile</a>
+        <a href="#">🔔</a>
+        <a th:href="@{/logout}">Logout</a>
+    </div>
+
+</div>
+
+
+<div class="overlay" id="overlay" onclick="closeMenu()"></div>
+
+<div class="sidebar" id="sidebar">
+
+    <ul>
+        <li><a th:href="@{/home}">🏠 Dashboard</a></li>
+        <li><a th:href="@{/customers/list}">👤 Customers</a></li>
+        <li><a th:href="@{/customers/add}">➕ Add Customer</a></li>
+        <li><a th:href="@{/Order/newOrder}">🛒 New Order</a></li>
+        <li><a th:href="@{/orders/list}">📋 Order History</a></li>
+        <li><a th:href="@{/voucher/list}">🧾 Voucher</a></li>
+        <li><a th:href="@{/payment/list}">💰 Payment</a></li>
+        <li><a th:href="@{/stock/list}">📦 Stock</a></li>
+        <li><a th:href="@{/reports}">📊 Reports</a></li>
+        <li><a th:href="@{/settings}">⚙ Settings</a></li>
+        <li><a th:href="@{/logout}">🚪 Logout</a></li>
+    </ul>
+
+</div>
+<div class="main" id="main">
+
+
+    <div class="topbar">
+<!--        <h1>Dashboard</h1>-->
+    </div>
+
+    <div class="cards">
+
+        <div class="card">
+            <h3>Total Customers</h3>
+            <h2 th:text="${totalcustomer}">120</h2>
+        </div>
+
+        <div class="card">
+            <h3>Total Orders</h3>
+            <h2 th:text="${totalOrders}">20</h2>
+        </div>
+
+
+        <div class="card">
+            <h3>Today's Sales</h3>
+            <h2>₹15,800</h2>
+        </div>
+
+        <div class="card">
+            <h3>Pending Orders</h3>
+            <h2>8</h2>
+        </div>
+        <div class="card">
+            <h3>Pending Orders</h3>
+            <h2>8</h2>
+        </div>
+
+    </div>
+
+    <div class="boutambtn" >
+
+        <a class="btn" th:href="@{/customers/add}">➕ Add Customer</a>
+
+        <a class="btn" th:href="@{/orders/new}">🛒 New Order</a>
+
+        <a class="btn" th:href="@{/voucher/list}">🧾 Generate Voucher</a>
+
+    </div>
+
+</div>
+
+</body>
+</html>
