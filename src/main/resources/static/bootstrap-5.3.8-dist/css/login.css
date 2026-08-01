@@ -1,0 +1,216 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', sans-serif;
+}
+
+body {
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    background: linear-gradient(
+        135deg,
+        #667eea,
+        #764ba2
+    );
+}
+
+
+.login-card {
+
+    width: 100%;
+    max-width: 420px;
+
+    padding: 40px;
+
+    background: rgba(255,255,255,0.15);
+
+    backdrop-filter: blur(15px);
+
+    border-radius: 20px;
+
+    box-shadow:
+        0 15px 35px rgba(0,0,0,0.25);
+
+    color: white;
+
+    animation: slide 0.8s ease;
+
+}
+
+
+
+@keyframes slide {
+
+    from {
+        transform: translateY(-50px);
+        opacity:0;
+    }
+
+    to {
+        transform: translateY(0);
+        opacity:1;
+    }
+
+}
+
+
+
+.logo {
+
+    text-align:center;
+    margin-bottom:25px;
+
+}
+
+
+.logo i {
+
+    font-size:55px;
+    color:#ffd166;
+
+}
+
+
+
+h1 {
+
+    text-align:center;
+
+    font-size:28px;
+
+    font-weight:700;
+
+}
+
+
+
+h5 {
+
+    text-align:center;
+
+    opacity:0.8;
+
+    margin-bottom:30px;
+
+}
+
+
+
+.input-box {
+
+    position:relative;
+
+    margin-bottom:20px;
+
+}
+
+
+
+.input-box i {
+
+    position:absolute;
+
+    top:13px;
+
+    left:15px;
+
+    color:#777;
+
+}
+
+
+
+.input-box input {
+
+    width:100%;
+
+    padding:12px 45px;
+
+    border:none;
+
+    outline:none;
+
+    border-radius:30px;
+
+    font-size:16px;
+
+}
+
+
+
+.login-btn {
+
+    width:100%;
+
+    padding:12px;
+
+    border:none;
+
+    border-radius:30px;
+
+    background:#ffd166;
+
+    color:#333;
+
+    font-size:18px;
+
+    font-weight:bold;
+
+    cursor:pointer;
+
+    transition:.3s;
+
+}
+
+
+
+.login-btn:hover {
+
+    background:#ffb703;
+
+    transform:scale(1.03);
+
+}
+
+
+
+.error-message {
+
+    background:#ffdddd;
+
+    color:#c00;
+
+    padding:10px;
+
+    border-radius:10px;
+
+    text-align:center;
+
+    margin-bottom:15px;
+
+}
+
+
+
+@media(max-width:480px){
+
+    .login-card {
+
+        margin:20px;
+
+        padding:30px 20px;
+
+    }
+
+
+    h1 {
+
+        font-size:23px;
+
+    }
+
+}

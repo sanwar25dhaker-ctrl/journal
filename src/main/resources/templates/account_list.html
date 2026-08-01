@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Accounts</title>
+    <link rel="stylesheet" th:href="@{/bootstrap-5.3.8-dist/css/bootstrap.min.css}">
+</head>
+<body>
+
+<div class="container mt-5">
+    <h3 class="text-center mb-4">Account List</h3>
+
+    <table class="table table-bordered table-striped">
+        <thead class="table-dark">
+        <tr>
+            <th>Account No</th>
+            <th>Customer ID</th>
+            <th>Type</th>
+            <th>Balance</th>
+        </tr>
+        </thead>
+
+        <tbody>
+        <tr th:each="a : ${accounts}">
+            <td th:text="${a.accountNo}"></td>
+            <td th:text="${a.customerId}"></td>
+            <td th:text="${a.accountType}"></td>
+            <td th:text="${a.balance}"></td>
+        </tr>
+        </tbody>
+    </table>
+</div>
+
+</body>
+</html>
